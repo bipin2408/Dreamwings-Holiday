@@ -1,0 +1,23 @@
+[
+    {
+      "title": "San Miguel",
+      "subtitle": "Italy",
+      "rating": 5,
+      "text": "Fusce hic augue velit wisi ips quibusdam pariatur, iusto.",
+      "image": "../images/popular-1.jpg"
+    },
+    {
+      "title": "Burj Khalifa",
+      "subtitle": "Dubai",
+      "rating": 5,
+      "text": "Fusce hic augue velit wisi ips quibusdam pariatur, iusto.",
+      "image": "../images/popular-2.jpg"
+    },
+    {
+      "title": "Kyoto Temple",
+      "subtitle": "Japan",
+      "rating": 5,
+      "text": "Fusce hic augue velit wisi ips quibusdam pariatur, iusto.",
+      "image": "../images/popular-3.jpg"
+    }
+  ]

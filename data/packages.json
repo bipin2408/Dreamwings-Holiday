@@ -1,18 +1,35 @@
 [
     {
-      "title": "Maldives Beach Escape",
-      "duration": "5D/4N",
-      "location": "Maldives",
-      "price": "$999",
-      "image": "./images/package-1.jpg",
-      "description": "Relax on the pristine beaches of the Maldives with Dreamwings Holiday."
+      "title": "Cliffside Ocean Adventure",
+      "description": "Fusce hic augue velit wisi ips quibusdam pariatur, iusto.",
+      "duration": "7D/6N",
+      "pax": "6",
+      "location": "California",
+      "rating": 5,
+      "reviews": 62,
+      "price": "$850",
+      "image": "../images/packege-1.jpg"
     },
     {
-      "title": "Himalayan Trek",
-      "duration": "7D/6N",
-      "location": "Nepal",
-      "price": "$799",
-      "image": "./images/package-2.jpg",
-      "description": "Embark on an exhilarating trek through the Himalayas with Dreamwings Holiday."
+      "title": "Mountain Escape Retreat",
+      "description": "Fusce hic augue velit wisi ips quibusdam pariatur, iusto.",
+      "duration": "5D/4N",
+      "pax": "4",
+      "location": "Himalayas",
+      "rating": 4,
+      "reviews": 48,
+      "price": "$650",
+      "image": "../images/packege-2.jpg"
+    },
+    {
+      "title": "Island Paradise Getaway",
+      "description": "Fusce hic augue velit wisi ips quibusdam pariatur, iusto.",
+      "duration": "8D/7N",
+      "pax": "8",
+      "location": "Maldives",
+      "rating": 5,
+      "reviews": 75,
+      "price": "$1200",
+      "image": "../images/packege-3.jpg"
     }
   ]
