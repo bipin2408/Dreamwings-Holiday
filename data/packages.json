@@ -1,0 +1,18 @@
+[
+    {
+      "title": "Maldives Beach Escape",
+      "duration": "5D/4N",
+      "location": "Maldives",
+      "price": "$999",
+      "image": "./images/package-1.jpg",
+      "description": "Relax on the pristine beaches of the Maldives with Dreamwings Holiday."
+    },
+    {
+      "title": "Himalayan Trek",
+      "duration": "7D/6N",
+      "location": "Nepal",
+      "price": "$799",
+      "image": "./images/package-2.jpg",
+      "description": "Embark on an exhilarating trek through the Himalayas with Dreamwings Holiday."
+    }
+  ]
