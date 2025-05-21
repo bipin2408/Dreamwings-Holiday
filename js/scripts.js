@@ -1,6 +1,14 @@
 'use strict';
 
 /**
+ * Initialize AOS for scroll animations
+ */
+AOS.init({
+  duration: 800,
+  once: true,
+});
+
+/**
  * Navbar toggle
  */
 const overlay = document.querySelector("[data-overlay]");
@@ -53,10 +61,10 @@ document.addEventListener("DOMContentLoaded", function () {
       data.forEach((dest, index) => {
         const popularItem = document.createElement("li");
         popularItem.classList.add("popular-item");
-        popularItem.style.animationDelay = `${index * 0.2}s`; // Staggered animation
+        popularItem.style.animationDelay = `${index * 0.2}s`;
 
         popularItem.innerHTML = `
-          <div class="popular-card">
+          <div class="popular-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="500">
             <figure class="card-img">
               <img src="${dest.image}" alt="${dest.title}" loading="lazy">
             </figure>
@@ -79,8 +87,47 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
         popularList.appendChild(popularItem);
       });
+
+      // Initialize Tilt.js for popular cards
+      VanillaTilt.init(document.querySelectorAll(".popular-card"), {
+        max: 15,
+        speed: 400,
+        perspective: 500,
+      });
     })
     .catch(error => console.error("Error loading popular destinations:", error));
+});
+
+/**
+ * Interactive Map Functionality
+ */
+document.addEventListener("DOMContentLoaded", function () {
+  const mapPoints = document.querySelectorAll(".map-point");
+
+  mapPoints.forEach(point => {
+    point.addEventListener("mouseenter", function () {
+      const tooltip = document.createElement("div");
+      tooltip.className = "map-tooltip";
+      tooltip.textContent = this.getAttribute("title");
+      document.body.appendChild(tooltip);
+
+      const rect = this.getBoundingClientRect();
+      tooltip.style.position = "fixed";
+      tooltip.style.left = `${rect.left + window.scrollX + 15}px`;
+      tooltip.style.top = `${rect.top + window.scrollY - 30}px`;
+      tooltip.style.background = "rgba(0, 0, 0, 0.8)";
+      tooltip.style.color = "white";
+      tooltip.style.padding = "5px 10px";
+      tooltip.style.borderRadius = "5px";
+      tooltip.style.fontSize = "12px";
+      tooltip.style.zIndex = "10";
+    });
+
+    point.addEventListener("mouseleave", function () {
+      const tooltip = document.querySelector(".map-tooltip");
+      if (tooltip) tooltip.remove();
+    });
+  });
 });
 
 /**
@@ -97,10 +144,10 @@ document.addEventListener("DOMContentLoaded", function () {
       data.forEach((pkg, index) => {
         const packageItem = document.createElement("li");
         packageItem.classList.add("package-item");
-        packageItem.style.animationDelay = `${index * 0.2}s`; // Staggered animation
+        packageItem.style.animationDelay = `${index * 0.2}s`;
 
         packageItem.innerHTML = `
-          <div class="package-card">
+          <div class="package-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="500">
             <figure class="card-banner">
               <img src="${pkg.image}" alt="${pkg.title}" loading="lazy">
             </figure>
@@ -143,6 +190,13 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
         packageList.appendChild(packageItem);
       });
+
+      // Initialize Tilt.js for package cards
+      VanillaTilt.init(document.querySelectorAll(".package-card"), {
+        max: 15,
+        speed: 400,
+        perspective: 500,
+      });
     })
     .catch(error => console.error("Error loading packages:", error));
 });
@@ -161,7 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
       data.forEach((item, index) => {
         const galleryItem = document.createElement("li");
         galleryItem.classList.add("gallery-item");
-        galleryItem.style.animationDelay = `${index * 0.2}s`; // Staggered animation
+        galleryItem.style.animationDelay = `${index * 0.2}s`;
 
         galleryItem.innerHTML = `
           <figure class="gallery-image">

@@ -2,46 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Dreamwings Holiday offers unforgettable travel experiences. Book your dream vacation today!">
-  <meta name="keywords" content="Dreamwings Holiday, travel agency, vacation packages">
-  <title>Dreamwings Holiday - Travel Agency</title>
-
-  <!-- favicon -->
-  <link rel="shortcut icon" href="./images/favicon.svg" type="image/svg+xml">
-
-  <!-- custom css link -->
+  <meta name="description" content="Explore breathtaking adventures with Dreamwingz Holiday. From soaring above scenic landscapes to standing on majestic cliffs, your dream vacation starts here.">
+  <meta name="keywords" content="travel, holiday, adventure, vacation, Dreamwingz Holiday">
+  <meta name="author" content="Dreamwingz Holiday">
+  <title>Dreamwingz Holiday - Journey to Explore the World</title>
+  <link rel="shortcut icon" href="./images/favicon.png" type="image/png">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <!-- AOS for Scroll Animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/styles.css">
-
-  <!-- google font link -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
-<body id="top">
-  <!-- #HEADER -->
+<body>
+  <!-- Header -->
   <header class="header" data-header>
-    <div class="overlay" data-overlay></div>
     <div class="header-top">
       <div class="container">
-        <a href="tel:+01123456790" class="helpline-box">
+        <div class="helpline-box">
           <div class="icon-box">
             <ion-icon name="call-outline"></ion-icon>
           </div>
           <div class="wrapper">
-            <p class="helpline-title">For Further Inquiries:</p>
-            <p class="helpline-number">+01 (123) 4567 90</p>
+            <p>For Further Inquiries:</p>
+            <a href="tel:+01123456790" class="helpline-number">+01 (123) 4567 90</a>
           </div>
-        </a>
-        <a href="#" class="logo">
-          <img src="./images/logo.svg" alt="Dreamwings Holiday logo">
+        </div>
+        <a href="./index.html" class="logo">
+          <img src="./images/logo.png" alt="Dreamwingz Holiday logo">
         </a>
         <div class="header-btn-group">
           <button class="search-btn" aria-label="Search">
-            <ion-icon name="search"></ion-icon>
+            <ion-icon name="search-outline"></ion-icon>
           </button>
-          <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+          <button class="nav-open-btn" data-nav-open-btn aria-label="Open Menu">
             <ion-icon name="menu-outline"></ion-icon>
           </button>
         </div>
@@ -51,61 +47,68 @@
       <div class="container">
         <ul class="social-list">
           <li>
-            <a href="#" class="social-link">
+            <a href="#" class="social-link" aria-label="Facebook">
               <ion-icon name="logo-facebook"></ion-icon>
             </a>
           </li>
           <li>
-            <a href="#" class="social-link">
+            <a href="#" class="social-link" aria-label="Twitter">
               <ion-icon name="logo-twitter"></ion-icon>
             </a>
           </li>
           <li>
-            <a href="#" class="social-link">
+            <a href="#" class="social-link" aria-label="Instagram">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link" aria-label="Pinterest">
+              <ion-icon name="logo-pinterest"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link" aria-label="YouTube">
               <ion-icon name="logo-youtube"></ion-icon>
             </a>
           </li>
         </ul>
         <nav class="navbar" data-navbar>
           <div class="navbar-top">
-            <a href="#" class="logo">
-              <img src="./images/logo-blue.svg" alt="Dreamwings Holiday logo">
+            <a href="./index.html" class="logo">
+              <img src="./images/logo-blue.png" alt="Dreamwingz Holiday logo">
             </a>
-            <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+            <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
               <ion-icon name="close-outline"></ion-icon>
             </button>
           </div>
           <ul class="navbar-list">
-            <li>
-              <a href="#home" class="navbar-link" data-nav-link>Home</a>
-            </li>
-            <li>
-              <a href="#destination" class="navbar-link" data-nav-link>Destinations</a>
-            </li>
-            <li>
-              <a href="#package" class="navbar-link" data-nav-link>Packages</a>
-            </li>
-            <li>
-              <a href="#gallery" class="navbar-link" data-nav-link>Gallery</a>
-            </li>
-            <li>
-              <a href="#contact" class="navbar-link" data-nav-link>Contact Us</a>
-            </li>
+            <li><a href="#home" class="navbar-link" data-nav-link>Home</a></li>
+            <li><a href="#destinations" class="navbar-link" data-nav-link>Destinations</a></li>
+            <li><a href="#packages" class="navbar-link" data-nav-link>Packages</a></li>
+            <li><a href="#gallery" class="navbar-link" data-nav-link>Gallery</a></li>
+            <li><a href="#contact" class="navbar-link" data-nav-link>Contact Us</a></li>
           </ul>
         </nav>
         <button class="btn btn-primary">Book Now</button>
       </div>
     </div>
+    <div class="overlay" data-overlay></div>
   </header>
 
+  <!-- Main Content -->
   <main>
     <article>
-      <!-- #HERO -->
+      <!-- Hero Section with Video Background -->
       <section class="hero parallax" id="home">
-        <div class="container">
+        <video autoplay muted loop class="hero-video">
+          <source src="./videos/travel-hero.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="container" data-aos="fade-up">
           <h2 class="h1 hero-title">Journey to Explore the World</h2>
           <p class="hero-text">
-            Discover breathtaking adventures with Dreamwings Holiday. From soaring above scenic landscapes to standing on majestic cliffs, your dream vacation starts here.
+            Discover breathtaking adventures with Dreamwingz Holiday. From soaring above scenic landscapes to standing on majestic cliffs, your dream vacation starts here.
           </p>
           <div class="btn-group">
             <button class="btn btn-primary">Learn More</button>
@@ -114,9 +117,9 @@
         </div>
       </section>
 
-      <!-- #TOUR SEARCH -->
+      <!-- Tour Search -->
       <section class="tour-search">
-        <div class="container">
+        <div class="container" data-aos="fade-up">
           <form action="" class="tour-search-form">
             <div class="input-wrapper">
               <label for="destination" class="input-label">Search Destination*</label>
@@ -139,52 +142,87 @@
         </div>
       </section>
 
-      <!-- #POPULAR -->
-      <section class="popular" id="destination">
+      <!-- Popular Destinations with Interactive Map -->
+      <section class="popular" id="destinations">
         <div class="container">
-          <p class="section-subtitle">Uncover Places</p>
-          <h2 class="h2 section-title">Popular Destinations</h2>
-          <p class="section-text">
-            Explore curated destinations with Dreamwings Holiday, designed to inspire your next journey.
+          <p class="section-subtitle" data-aos="fade-up">Uncover Places</p>
+          <h2 class="h2 section-title" data-aos="fade-up">Popular Destinations</h2>
+          <p class="section-text" data-aos="fade-up">
+            Explore curated destinations with Dreamwingz Holiday, designed to inspire your next journey.
           </p>
-          <ul class="popular-list"></ul>
-          <button class="btn btn-primary">More Destinations</button>
+          <!-- Interactive Map -->
+          <div class="world-map" data-aos="zoom-in">
+            <svg viewBox="0 0 1000 500" class="map-svg">
+              <g class="map-locations">
+                <!-- Example: Italy (San Miguel) -->
+                <circle cx="450" cy="200" r="10" class="map-point" data-location="italy" title="San Miguel, Italy"></circle>
+                <!-- Dubai (Burj Khalifa) -->
+                <circle cx="600" cy="250" r="10" class="map-point" data-location="dubai" title="Burj Khalifa, Dubai"></circle>
+                <!-- Japan (Kyoto Temple) -->
+                <circle cx="800" cy="150" r="10" class="map-point" data-location="japan" title="Kyoto Temple, Japan"></circle>
+              </g>
+            </svg>
+          </div>
+          <ul class="popular-list" data-aos="fade-up"></ul>
+          <button class="btn btn-primary" data-aos="fade-up">More Destinations</button>
         </div>
       </section>
 
-      <!-- #PACKAGE -->
-      <section class="package" id="package">
+      <!-- Packages -->
+      <section class="package" id="packages">
         <div class="container">
-          <p class="section-subtitle">Popular Packages</p>
-          <h2 class="h2 section-title">Check Out Our Packages</h2>
-          <p class="section-text">
-            Discover unforgettable travel experiences with Dreamwings Holiday’s curated packages.
+          <p class="section-subtitle" data-aos="fade-up">Popular Packages</p>
+          <h2 class="h2 section-title" data-aos="fade-up">Check Out Our Packages</h2>
+          <p class="section-text" data-aos="fade-up">
+            Discover unforgettable travel experiences with Dreamwingz Holiday’s curated packages.
           </p>
-          <ul class="package-list"></ul>
-          <button class="btn btn-primary">View All Packages</button>
+          <ul class="package-list" data-aos="fade-up"></ul>
+          <button class="btn btn-primary" data-aos="fade-up">View All Packages</button>
         </div>
       </section>
 
-      <!-- #GALLERY -->
+      <!-- Testimonials Section -->
+      <section class="testimonials" id="testimonials">
+        <div class="container">
+          <p class="section-subtitle" data-aos="fade-up">Traveler Stories</p>
+          <h2 class="h2 section-title" data-aos="fade-up">What Our Travelers Say</h2>
+          <div class="testimonials-slider" data-aos="fade-up">
+            <div class="testimonial-card">
+              <p class="testimonial-text">"Dreamwingz Holiday made our trip to Italy unforgettable! The itinerary was perfect, and the support was amazing."</p>
+              <p class="testimonial-author">– Sarah M., USA</p>
+            </div>
+            <div class="testimonial-card">
+              <p class="testimonial-text">"The Maldives package was a dream come true. Everything was seamless, from booking to the trip itself."</p>
+              <p class="testimonial-author">– Raj K., India</p>
+            </div>
+            <div class="testimonial-card">
+              <p class="testimonial-text">"I loved the adventure in the Himalayas. Dreamwingz Holiday truly knows how to create memorable experiences!"</p>
+              <p class="testimonial-author">– Emily T., UK</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery -->
       <section class="gallery" id="gallery">
         <div class="container">
-          <p class="section-subtitle">Photo Gallery</p>
-          <h2 class="h2 section-title">Photos From Travellers</h2>
-          <p class="section-text">
-            See the world through the eyes of our travellers with Dreamwings Holiday.
+          <p class="section-subtitle" data-aos="fade-up">Photo Gallery</p>
+          <h2 class="h2 section-title" data-aos="fade-up">Photos From Travellers</h2>
+          <p class="section-text" data-aos="fade-up">
+            See the world through the eyes of our travellers with Dreamwingz Holiday.
           </p>
-          <ul class="gallery-list"></ul>
+          <ul class="gallery-list" data-aos="fade-up"></ul>
         </div>
       </section>
 
-      <!-- #CTA -->
+      <!-- CTA -->
       <section class="cta" id="contact">
-        <div class="container">
+        <div class="container" data-aos="fade-up">
           <div class="cta-content">
             <p class="section-subtitle">Call To Action</p>
             <h2 class="h2 section-title">Ready For Unforgettable Travel?</h2>
             <p class="section-text">
-              Contact Dreamwings Holiday to plan your next adventure today!
+              Contact Dreamwingz Holiday to plan your next adventure today!
             </p>
           </div>
           <button class="btn btn-secondary">Contact Us!</button>
@@ -193,23 +231,21 @@
     </article>
   </main>
 
-  <!-- #FOOTER -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-top">
       <div class="container">
-        <div class="footer-brand">
+        <div class="footer-brand" data-aos="fade-up">
           <a href="#" class="logo">
-            <img src="./images/logo.svg" alt="Dreamwings Holiday logo">
+            <img src="./images/logo.png" alt="Dreamwingz Holiday logo">
           </a>
           <p class="footer-text">
-            Dreamwings Holiday, your trusted travel partner for unforgettable journeys.
+            Dreamwingz Holiday, your trusted travel partner for unforgettable journeys.
           </p>
         </div>
-        <div class="footer-contact">
+        <div class="footer-contact" data-aos="fade-up">
           <h4 class="contact-title">Contact Us</h4>
-          <p class="contact-text">
-            Feel free to contact and reach us!
-          </p>
+          <p class="contact-text">Feel free to contact and reach us!</p>
           <ul>
             <li class="contact-item">
               <ion-icon name="call-outline"></ion-icon>
@@ -217,7 +253,7 @@
             </li>
             <li class="contact-item">
               <ion-icon name="mail-outline"></ion-icon>
-              <a href="mailto:info@dreamwingsholiday.com" class="contact-link">info@dreamwingsholiday.com</a>
+              <a href="mailto:info@dreamwingz.com" class="contact-link">info@dreamwingz.com</a>
             </li>
             <li class="contact-item">
               <ion-icon name="location-outline"></ion-icon>
@@ -225,13 +261,11 @@
             </li>
           </ul>
         </div>
-        <div class="footer-form">
-          <p class="form-text">
-            Subscribe to our newsletter for updates & news!
-          </p>
-          <form action="" class="form-wrapper">
-            <input type="email" name="email" class="input-field" placeholder="Enter Your Email" required>
-            <button type="submit" class="btn btn-secondary">Subscribe</button>
+        <div class="footer-form" data-aos="fade-up">
+          <p class="form-text">Subscribe to our newsletter for updates & news!</p>
+          <form action="" class="footer-form">
+            <input type="email" name="email" placeholder="Your Email" class="input-field" required>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
           </form>
         </div>
       </div>
@@ -239,42 +273,30 @@
     <div class="footer-bottom">
       <div class="container">
         <p class="copyright">
-          © 2025 Dreamwings Holiday. All rights reserved.
+          © 2025 Dreamwingz Holiday. All rights reserved.
         </p>
         <ul class="footer-bottom-list">
-          <li>
-            <a href="#" class="footer-bottom-link">Privacy Policy</a>
-          </li>
-          <li>
-            <a href="#" class="footer-bottom-link">Terms & Conditions</a>
-          </li>
-          <li>
-            <a href="#" class="footer-bottom-link">FAQ</a>
-          </li>
+          <li><a href="#" class="footer-bottom-link">Privacy Policy</a></li>
+          <li><a href="#" class="footer-bottom-link">Terms & Conditions</a></li>
+          <li><a href="#" class="footer-bottom-link">FAQ</a></li>
         </ul>
       </div>
     </div>
   </footer>
 
-  <!-- #GO TO TOP -->
-  <a href="#top" class="go-top" data-go-top>
+  <!-- Go to Top -->
+  <a href="#top" class="go-top" data-go-top aria-label="Go to Top">
     <ion-icon name="chevron-up-outline"></ion-icon>
   </a>
 
-  <!-- custom js link -->
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/1123456790" class="whatsapp-btn" aria-label="Chat with us on WhatsApp" target="_blank">
+    <ion-icon name="logo-whatsapp"></ion-icon>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
   <script src="./js/scripts.js"></script>
-
-  <!-- ionicon link -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-  <!-- Parallax effect for Hero section -->
-  <script>
-    window.addEventListener("scroll", function () {
-      const hero = document.querySelector(".hero.parallax");
-      const scrollY = window.scrollY;
-      hero.style.setProperty("--scroll-y", scrollY);
-    });
-  </script>
 </body>
 </html>
