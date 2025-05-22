@@ -121,6 +121,26 @@
     transform: scale(1.05);
     box-shadow: 0 2px 8px hsla(0, 0%, 100%, 0.3);
   }
+
+  /* Loading state for buttons */
+  .btn-loading {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  .btn-loading::after {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+    margin-left: 8px;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
   
   .h1, .h2, .h3 {
     font-weight: var(--fw-800);
@@ -179,16 +199,17 @@
   \*-----------------------------------*/
   
   .header {
-    position: absolute;
+    position: fixed; /* Changed to fixed to ensure it stays on top */
     top: 0;
     left: 0;
     width: 100%;
-    padding-top: 61px;
+    background: transparent; /* Ensure initial transparency */
+    padding-top: 0; /* Remove padding-top to control spacing better */
     z-index: 4;
   }
   
   .header-top {
-    position: absolute;
+    position: relative; /* Changed to relative to avoid overlap issues */
     top: 0;
     left: 0;
     width: 100%;
@@ -196,10 +217,12 @@
     border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
     padding-block: 15px;
     z-index: 1;
+    background: transparent; /* Ensure transparency */
   }
   
   .header.active .header-top {
     position: fixed;
+    top: 0;
     background: var(--gunmetal);
   }
   
@@ -229,9 +252,9 @@
   .header-top .logo { margin-inline: auto; }
   
   .header-top .logo img {
-    max-width: 200px; /* Adjusted to fit the wide logo */
-    height: auto; /* Maintain aspect ratio */
-    max-height: 40px; /* Limit height to fit in header */
+    max-width: 200px;
+    height: auto;
+    max-height: 40px;
   }
   
   .header-btn-group {
@@ -254,7 +277,10 @@
   
   .search-btn { font-size: 20px; }
   
-  .header-bottom { border-bottom: 1px solid hsla(0, 0%, 100%, 0.1); }
+  .header-bottom { 
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.1); 
+    background: transparent; /* Ensure transparency */
+  }
   
   .header-bottom .container {
     display: flex;
@@ -314,9 +340,9 @@
   }
   
   .navbar-top .logo img {
-    max-width: 200px; /* Adjusted for navbar logo */
+    max-width: 200px;
     height: auto;
-    max-height: 50px; /* Limit height in navbar */
+    max-height: 50px;
   }
   
   .nav-close-btn {
@@ -374,7 +400,8 @@
     place-items: center;
     min-height: 600px;
     text-align: center;
-    padding-top: 125px;
+    margin-top: 120px; /* Added to push hero below header */
+    padding-top: 40px; /* Reduced padding-top to adjust content positioning */
     position: relative;
     overflow: hidden;
   }
@@ -734,7 +761,7 @@
   .footer-brand img {
     width: 180px;
     height: auto;
-    max-height: 60px; /* Adjusted for footer */
+    max-height: 60px;
   }
   
   .footer-brand .logo { margin-bottom: 20px; }
@@ -907,12 +934,12 @@
   
     .card-text { --fs-5: 15px; }
   
-    .header { padding-top: 83px; }
+    .header { padding-top: 0; } /* Adjusted */
   
     .helpline-box .icon-box { padding: 14px; }
   
     .header-top .logo img {
-      max-width: 250px; /* Adjusted for larger screens */
+      max-width: 250px;
       max-height: 50px;
     }
   
@@ -927,7 +954,8 @@
   
     .hero {
       min-height: 800px;
-      padding-top: 85px;
+      margin-top: 140px; /* Adjusted for larger header */
+      padding-top: 40px;
     }
   
     .hero-text { --fs-5: 15px; }
@@ -1066,8 +1094,8 @@
     .container { max-width: 1050px; }
   
     .header.active .header-top {
-      position: unset;
-      background: unset;
+      position: fixed; /* Keep fixed behavior */
+      background: var(--gunmetal);
     }
   
     .nav-open-btn,
@@ -1077,7 +1105,7 @@
   
     .header.active .header-bottom {
       position: fixed;
-      top: 0;
+      top: 46px; /* Adjusted for header-top height */
       left: 0;
       width: 100%;
       background: var(--white);
