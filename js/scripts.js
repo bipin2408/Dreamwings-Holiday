@@ -1,8 +1,6 @@
 'use strict';
 
-/**
- * Navbar toggle
- */
+// Navbar toggle
 const overlay = document.querySelector("[data-overlay]");
 const navOpenBtn = document.querySelector("[data-nav-open-btn]");
 const navbar = document.querySelector("[data-navbar]");
@@ -23,9 +21,16 @@ const navToggleEvent = function (elem) {
 navToggleEvent(navElemArr);
 navToggleEvent(navLinks);
 
-/**
- * Header sticky & go to top
- */
+// Smooth scrolling
+navLinks.forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Header sticky & go to top
 const header = document.querySelector("[data-header]");
 const goTopBtn = document.querySelector("[data-go-top]");
 
@@ -39,137 +44,117 @@ window.addEventListener("scroll", function () {
   }
 });
 
-/**
- * Dynamically load popular destinations from data/popular.json
- */
-document.addEventListener("DOMContentLoaded", function () {
-  const popularList = document.querySelector(".popular-list");
+// Loader
+window.addEventListener("load", function () {
+  const loader = document.getElementById("loader");
+  setTimeout(() => {
+    loader.style.display = "none";
+  }, 1000);
+});
 
-  fetch("../data/popular.json")
-    .then(response => response.json())
-    .then(data => {
-      popularList.innerHTML = ""; // Clear existing content
+// Load JSON data
+async function loadJSON(url) {
+  const response = await fetch(url);
+  return await response.json();
+}
 
-      data.forEach((dest, index) => {
-        const popularItem = document.createElement("li");
-        popularItem.classList.add("popular-item");
-        popularItem.style.animationDelay = `${index * 0.2}s`; // Staggered animation
+// Popular Destinations
+async function loadPopularDestinations() {
+  const data = await loadJSON('popular.json');
+  const popularList = document.getElementById('popular-list');
+  popularList.innerHTML = data.map(item => `
+    <li>
+      <div class="popular-card">
+        <figure class="card-img">
+          <img src="${item.image}" alt="${item.alt}" loading="lazy">
+        </figure>
+        <div class="card-content">
+          <div class="card-rating">
+            ${'<ion-icon name="star"></ion-icon>'.repeat(item.rating)}
+          </div>
+          <p class="card-subtitle"><a href="#">${item.subtitle}</a></p>
+          <h3 class="h3 card-title"><a href="#">${item.title}</a></h3>
+          <p class="card-text">${item.text}</p>
+        </div>
+      </div>
+    </li>
+  `).join('');
+}
 
-        popularItem.innerHTML = `
-          <div class="popular-card">
-            <figure class="card-img">
-              <img src="${dest.image}" alt="${dest.title}" loading="lazy">
-            </figure>
-            <div class="card-content">
-              <div class="card-rating">
-                ${'<ion-icon name="star"></ion-icon>'.repeat(dest.rating)}
-                ${'<ion-icon name="star-outline"></ion-icon>'.repeat(5 - dest.rating)}
+// Packages
+async function loadPackages() {
+  const data = await loadJSON('packages.json');
+  const packageList = document.getElementById('package-list');
+  packageList.innerHTML = data.map(item => `
+    <li>
+      <div class="package-card">
+        <figure class="card-banner">
+          <img src="${item.image}" alt="${item.alt}" loading="lazy">
+        </figure>
+        <div class="card-content">
+          <h3 class="h3 card-title">${item.title}</h3>
+          <p class="card-text">${item.text}</p>
+          <ul class="card-meta-list">
+            <li class="card-meta-item">
+              <div class="meta-box">
+                <ion-icon name="time"></ion-icon>
+                <p>${item.duration}</p>
               </div>
-              <p class="card-subtitle">
-                <a href="#">${dest.subtitle}</a>
-              </p>
-              <h3 class="h3 card-title">
-                <a href="#">${dest.title}</a>
-              </h3>
-              <p class="card-text">
-                ${dest.text}
-              </p>
+            </li>
+            <li class="card-meta-item">
+              <div class="meta-box">
+                <ion-icon name="people"></ion-icon>
+                <p>pax: ${item.pax}</p>
+              </div>
+            </li>
+            <li class="card-meta-item">
+              <div class="meta-box">
+                <ion-icon name="location"></ion-icon>
+                <p>${item.location}</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="card-price">
+          <div class="wrapper">
+            <p class="reviews">(${item.reviews} reviews)</p>
+            <div class="card-rating">
+              ${'<ion-icon name="star"></ion-icon>'.repeat(item.rating)}
             </div>
           </div>
-        `;
-        popularList.appendChild(popularItem);
-      });
-    })
-    .catch(error => console.error("Error loading popular destinations:", error));
+          <p class="price">${item.price}<span>/ per person</span></p>
+          <a href="#package" class="btn btn-primary">Book Now</a>
+        </div>
+      </div>
+    </li>
+  `).join('');
+}
+
+// Gallery
+async function loadGallery() {
+  const data = await loadJSON('gallery.json');
+  const galleryList = document.getElementById('gallery-list');
+  galleryList.innerHTML = data.map((item, index) => `
+    <li class="gallery-item">
+      <figure class="gallery-image">
+        <img src="${item.image}" alt="${item.alt}" loading="lazy">
+      </figure>
+    </li>
+  `).join('');
+}
+
+// Newsletter Signup
+const newsletterForm = document.getElementById('newsletter-form');
+newsletterForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const email = this.querySelector('input[name="email"]').value;
+  if (email) {
+    alert('Thank you for subscribing to Dreamwingz Holiday!');
+    this.reset();
+  }
 });
 
-/**
- * Dynamically load packages from data/packages.json
- */
-document.addEventListener("DOMContentLoaded", function () {
-  const packageList = document.querySelector(".package-list");
-
-  fetch("../data/packages.json")
-    .then(response => response.json())
-    .then(data => {
-      packageList.innerHTML = ""; // Clear existing content
-
-      data.forEach((pkg, index) => {
-        const packageItem = document.createElement("li");
-        packageItem.classList.add("package-item");
-        packageItem.style.animationDelay = `${index * 0.2}s`; // Staggered animation
-
-        packageItem.innerHTML = `
-          <div class="package-card">
-            <figure class="card-banner">
-              <img src="${pkg.image}" alt="${pkg.title}" loading="lazy">
-            </figure>
-            <div class="card-content">
-              <h3 class="h3 card-title">${pkg.title}</h3>
-              <p class="card-text">${pkg.description}</p>
-              <ul class="card-meta-list">
-                <li class="card-meta-item">
-                  <div class="meta-box">
-                    <ion-icon name="time"></ion-icon>
-                    <p class="text">${pkg.duration}</p>
-                  </div>
-                </li>
-                <li class="card-meta-item">
-                  <div class="meta-box">
-                    <ion-icon name="people"></ion-icon>
-                    <p class="text">pax: ${pkg.pax}</p>
-                  </div>
-                </li>
-                <li class="card-meta-item">
-                  <div class="meta-box">
-                    <ion-icon name="location"></ion-icon>
-                    <p class="text">${pkg.location}</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="card-price">
-              <div class="wrapper">
-                <p class="reviews">(${pkg.reviews} reviews)</p>
-                <div class="card-rating">
-                  ${'<ion-icon name="star"></ion-icon>'.repeat(pkg.rating)}
-                  ${'<ion-icon name="star-outline"></ion-icon>'.repeat(5 - pkg.rating)}
-                </div>
-              </div>
-              <p class="price">${pkg.price}<span>/ per person</span></p>
-              <button class="btn btn-secondary">Book Now</button>
-            </div>
-          </div>
-        `;
-        packageList.appendChild(packageItem);
-      });
-    })
-    .catch(error => console.error("Error loading packages:", error));
-});
-
-/**
- * Dynamically load gallery images from data/gallery.json
- */
-document.addEventListener("DOMContentLoaded", function () {
-  const galleryList = document.querySelector(".gallery-list");
-
-  fetch("../data/gallery.json")
-    .then(response => response.json())
-    .then(data => {
-      galleryList.innerHTML = ""; // Clear existing content
-
-      data.forEach((item, index) => {
-        const galleryItem = document.createElement("li");
-        galleryItem.classList.add("gallery-item");
-        galleryItem.style.animationDelay = `${index * 0.2}s`; // Staggered animation
-
-        galleryItem.innerHTML = `
-          <figure class="gallery-image">
-            <img src="${item.image}" alt="${item.alt}">
-          </figure>
-        `;
-        galleryList.appendChild(galleryItem);
-      });
-    })
-    .catch(error => console.error("Error loading gallery images:", error));
-});
+// Initialize
+loadPopularDestinations();
+loadPackages();
+loadGallery();

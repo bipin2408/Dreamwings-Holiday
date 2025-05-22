@@ -1,22 +1,22 @@
 [
-    {
-      "image": "../images/gallery-1.jpg",
-      "alt": "Gallery image 1"
-    },
-    {
-      "image": "../images/gallery-2.jpg",
-      "alt": "Gallery image 2"
-    },
-    {
-      "image": "../images/gallery-3.jpg",
-      "alt": "Gallery image 3"
-    },
-    {
-      "image": "../images/gallery-4.jpg",
-      "alt": "Gallery image 4"
-    },
-    {
-      "image": "../images/gallery-5.jpg",
-      "alt": "Gallery image 5"
-    }
-  ]
+  {
+    "image": "./images/gallery-1.jpg",
+    "alt": "Gallery image 1"
+  },
+  {
+    "image": "./images/gallery-2.jpg",
+    "alt": "Gallery image 2"
+  },
+  {
+    "image": "./images/gallery-3.jpg",
+    "alt": "Gallery image 3"
+  },
+  {
+    "image": "./images/gallery-4.jpg",
+    "alt": "Gallery image 4"
+  },
+  {
+    "image": "./images/gallery-5.jpg",
+    "alt": "Gallery image 5"
+  }
+]
