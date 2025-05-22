@@ -1,23 +1,23 @@
 [
-  {
-    "title": "San Miguel",
-    "subtitle": "Italy",
-    "rating": 5,
-    "text": "Discover the charm of Italy’s historic streets and vibrant culture.",
-    "image": "images/popular-1.jpg"
-  },
-  {
-    "title": "Burj Khalifa",
-    "subtitle": "Dubai",
-    "rating": 5,
-    "text": "Experience unparalleled views from the world’s tallest skyscraper.",
-    "image": "images/popular-2.jpg"
-  },
-  {
-    "title": "Kyoto Temple",
-    "subtitle": "Japan",
-    "rating": 5,
-    "text": "Immerse yourself in the serene beauty of Kyoto’s ancient temples.",
-    "image": "images/popular-3.jpg"
-  }
-]
+    {
+      "title": "San Miguel",
+      "subtitle": "Italy",
+      "rating": 5,
+      "text": "Fusce hic augue velit wisi ips quibusdam pariatur, iusto.",
+      "image": "../images/popular-1.jpg"
+    },
+    {
+      "title": "Burj Khalifa",
+      "subtitle": "Dubai",
+      "rating": 5,
+      "text": "Fusce hic augue velit wisi ips quibusdam pariatur, iusto.",
+      "image": "../images/popular-2.jpg"
+    },
+    {
+      "title": "Kyoto Temple",
+      "subtitle": "Japan",
+      "rating": 5,
+      "text": "Fusce hic augue velit wisi ips quibusdam pariatur, iusto.",
+      "image": "../images/popular-3.jpg"
+    }
+  ]
