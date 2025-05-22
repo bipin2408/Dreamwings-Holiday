@@ -3,300 +3,249 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore breathtaking adventures with Dreamwingz Holiday. From soaring above scenic landscapes to standing on majestic cliffs, your dream vacation starts here.">
-  <meta name="keywords" content="travel, holiday, adventure, vacation, Dreamwingz Holiday">
-  <meta name="author" content="Dreamwingz Holiday">
-  <title>Dreamwingz Holiday - Journey to Explore the World</title>
-  <link rel="shortcut icon" href="./images/favicon.png" type="image/png">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <!-- AOS for Scroll Animations -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="./css/styles.css">
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <title>Dreamwingz Holiday - Modern Travel</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
-<body>
+<body class="font-inter bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
   <!-- Header -->
-  <header class="header" data-header>
-    <div class="header-top">
-      <div class="container">
-        <div class="helpline-box">
-          <div class="icon-box">
-            <ion-icon name="call-outline"></ion-icon>
-          </div>
-          <div class="wrapper">
-            <p>For Further Inquiries:</p>
-            <a href="tel:+01123456790" class="helpline-number">+01 (123) 4567 90</a>
-          </div>
-        </div>
-        <a href="./index.html" class="logo">
-          <img src="./images/logo.png" alt="Dreamwingz Holiday logo">
-        </a>
-        <div class="header-btn-group">
-          <button class="search-btn" aria-label="Search">
-            <ion-icon name="search-outline"></ion-icon>
-          </button>
-          <button class="nav-open-btn" data-nav-open-btn aria-label="Open Menu">
-            <ion-icon name="menu-outline"></ion-icon>
-          </button>
-        </div>
+  <header class="fixed top-0 left-0 w-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md z-50 shadow-sm">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="#" class="logo">
+        <img src="images/img8.jpg" alt="Dreamwingz Holiday logo" class="w-32">
+      </a>
+      <nav class="hidden md:flex space-x-6">
+        <a href="#home" class="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition">Home</a>
+        <a href="#destinations" class="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition">Destinations</a>
+        <a href="#packages" class="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition">Packages</a>
+        <a href="#gallery" class="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition">Gallery</a>
+        <a href="#contact" class="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a>
+      </nav>
+      <div class="flex items-center space-x-4">
+        <button id="theme-toggle" class="text-gray-700 dark:text-gray-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+        </button>
+        <button class="md:hidden text-gray-700 dark:text-gray-200" id="nav-toggle">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+        </button>
+        <a href="#packages" class="hidden md:block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition">Book Now</a>
       </div>
     </div>
-    <div class="header-bottom">
-      <div class="container">
-        <ul class="social-list">
-          <li>
-            <a href="#" class="social-link" aria-label="Facebook">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="social-link" aria-label="Twitter">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="social-link" aria-label="Instagram">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="social-link" aria-label="Pinterest">
-              <ion-icon name="logo-pinterest"></ion-icon>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="social-link" aria-label="YouTube">
-              <ion-icon name="logo-youtube"></ion-icon>
-            </a>
-          </li>
-        </ul>
-        <nav class="navbar" data-navbar>
-          <div class="navbar-top">
-            <a href="./index.html" class="logo">
-              <img src="./images/logo-blue.png" alt="Dreamwingz Holiday logo">
-            </a>
-            <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-          </div>
-          <ul class="navbar-list">
-            <li><a href="#home" class="navbar-link" data-nav-link>Home</a></li>
-            <li><a href="#destinations" class="navbar-link" data-nav-link>Destinations</a></li>
-            <li><a href="#packages" class="navbar-link" data-nav-link>Packages</a></li>
-            <li><a href="#gallery" class="navbar-link" data-nav-link>Gallery</a></li>
-            <li><a href="#contact" class="navbar-link" data-nav-link>Contact Us</a></li>
-          </ul>
-        </nav>
-        <button class="btn btn-primary">Book Now</button>
-      </div>
-    </div>
-    <div class="overlay" data-overlay></div>
+    <nav class="mobile-nav hidden bg-white dark:bg-gray-800 p-4 shadow-lg">
+      <ul class="space-y-4">
+        <li><a href="#home" class="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Home</a></li>
+        <li><a href="#destinations" class="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Destinations</a></li>
+        <li><a href="#packages" class="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Packages</a></li>
+        <li><a href="#gallery" class="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Gallery</a></li>
+        <li><a href="#contact" class="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Main Content -->
-  <main>
-    <article>
-      <!-- Hero Section with Video Background -->
-      <section class="hero parallax" id="home">
-        <video autoplay muted loop class="hero-video">
-          <source src="./videos/travel-hero.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <div class="hero-overlay"></div>
-        <div class="container" data-aos="fade-up">
-          <h2 class="h1 hero-title">Journey to Explore the World</h2>
-          <p class="hero-text">
-            Discover breathtaking adventures with Dreamwingz Holiday. From soaring above scenic landscapes to standing on majestic cliffs, your dream vacation starts here.
-          </p>
-          <div class="btn-group">
-            <button class="btn btn-primary">Learn More</button>
-            <button class="btn btn-secondary">Book Now</button>
-          </div>
-        </div>
-      </section>
+  <!-- Hero Section -->
+  <section id="home" class="relative min-h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('images/hero-banner.jpg')">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-blue-900/30 backdrop-blur-sm"></div>
+    <div class="container mx-auto px-4 text-center text-white z-10" data-aos="fade-up">
+      <h1 class="text-4xl md:text-6xl font-poppins font-bold mb-4">Discover Your Next Adventure</h1>
+      <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">Dreamwingz Holiday curates unforgettable travel experiences tailored to your wanderlust.</p>
+      <div class="flex justify-center space-x-4">
+        <a href="#packages" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">Explore Packages</a>
+        <a href="#contact" class="border-2 border-white text-white px-6 py-3 rounded-full hover:bg-white/20 transition">Get in Touch</a>
+      </div>
+    </div>
+  </section>
 
-      <!-- Tour Search -->
-      <section class="tour-search">
-        <div class="container" data-aos="fade-up">
-          <form action="" class="tour-search-form">
-            <div class="input-wrapper">
-              <label for="destination" class="input-label">Search Destination*</label>
-              <input type="text" name="destination" id="destination" required placeholder="Enter Destination" class="input-field">
-            </div>
-            <div class="input-wrapper">
-              <label for="people" class="input-label">Pax Number*</label>
-              <input type="number" name="people" id="people" required placeholder="No. of People" class="input-field">
-            </div>
-            <div class="input-wrapper">
-              <label for="checkin" class="input-label">Checkin Date*</label>
-              <input type="date" name="checkin" id="checkin" required class="input-field">
-            </div>
-            <div class="input-wrapper">
-              <label for="checkout" class="input-label">Checkout Date*</label>
-              <input type="date" name="checkout" id="checkout" required class="input-field">
-            </div>
-            <button type="submit" class="btn btn-secondary">Inquire Now</button>
-          </form>
+  <!-- Tour Search -->
+  <section id="search" class="py-16 bg-blue-600 text-white">
+    <div class="container mx-auto px-4">
+      <form class="grid grid-cols-1 md:grid-cols-5 gap-4 max-w-5xl mx-auto" data-aos="fade-up">
+        <div>
+          <label class="block text-sm font-medium mb-2">Destination</label>
+          <input type="text" placeholder="Where to?" class="w-full p-3 rounded-lg bg-white/10 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
         </div>
-      </section>
+        <div>
+          <label class="block text-sm font-medium mb-2">Pax</label>
+          <input type="number" placeholder="No. of People" class="w-full p-3 rounded-lg bg-white/10 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-2">Check-in</label>
+          <input type="date" class="w-full p-3 rounded-lg bg-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-400">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-2">Check-out</label>
+          <input type="date" class="w-full p-3 rounded-lg bg-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-400">
+        </div>
+        <div class="flex items-end">
+          <button type="submit" class="w-full bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-100 transition">Search</button>
+        </div>
+      </form>
+    </div>
+  </section>
 
-      <!-- Popular Destinations with Interactive Map -->
-      <section class="popular" id="destinations">
-        <div class="container">
-          <p class="section-subtitle" data-aos="fade-up">Uncover Places</p>
-          <h2 class="h2 section-title" data-aos="fade-up">Popular Destinations</h2>
-          <p class="section-text" data-aos="fade-up">
-            Explore curated destinations with Dreamwingz Holiday, designed to inspire your next journey.
-          </p>
-          <!-- Interactive Map -->
-          <div class="world-map" data-aos="zoom-in">
-            <svg viewBox="0 0 1000 500" class="map-svg">
-              <g class="map-locations">
-                <!-- Example: Italy (San Miguel) -->
-                <circle cx="450" cy="200" r="10" class="map-point" data-location="italy" title="San Miguel, Italy"></circle>
-                <!-- Dubai (Burj Khalifa) -->
-                <circle cx="600" cy="250" r="10" class="map-point" data-location="dubai" title="Burj Khalifa, Dubai"></circle>
-                <!-- Japan (Kyoto Temple) -->
-                <circle cx="800" cy="150" r="10" class="map-point" data-location="japan" title="Kyoto Temple, Japan"></circle>
-              </g>
-            </svg>
-          </div>
-          <ul class="popular-list" data-aos="fade-up"></ul>
-          <button class="btn btn-primary" data-aos="fade-up">More Destinations</button>
-        </div>
-      </section>
+  <!-- Popular Destinations -->
+  <section id="destinations" class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-poppins font-bold text-center text-gray-800 dark:text-gray-100 mb-4" data-aos="fade-up">Popular Destinations</h2>
+      <p class="text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">Discover our handpicked destinations for your next adventure.</p>
+      <ul class="grid grid-cols-1 md:grid-cols-3 gap-8 popular-list"></ul>
+      <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="200">
+        <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">More Destinations</a>
+      </div>
+    </div>
+  </section>
 
-      <!-- Packages -->
-      <section class="package" id="packages">
-        <div class="container">
-          <p class="section-subtitle" data-aos="fade-up">Popular Packages</p>
-          <h2 class="h2 section-title" data-aos="fade-up">Check Out Our Packages</h2>
-          <p class="section-text" data-aos="fade-up">
-            Discover unforgettable travel experiences with Dreamwingz Holiday’s curated packages.
-          </p>
-          <ul class="package-list" data-aos="fade-up"></ul>
-          <button class="btn btn-primary" data-aos="fade-up">View All Packages</button>
-        </div>
-      </section>
+  <!-- Packages -->
+  <section id="packages" class="py-16 bg-gray-100 dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-poppins font-bold text-center text-gray-800 dark:text-gray-100 mb-4" data-aos="fade-up">Our Best Packages</h2>
+      <p class="text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8" data-aos="fade-up" data-aos-delay="100">Choose from our curated travel packages for an unforgettable experience.</p>
+      <div class="flex justify-center mb-8" data-aos="fade-up" data-aos-delay="200">
+        <select id="package-filter" class="p-3 rounded-lg bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 shadow-md">
+          <option value="all">All Destinations</option>
+          <option value="California">California</option>
+          <option value="Himalayas">Himalayas</option>
+          <option value="Maldives">Maldives</option>
+        </select>
+      </div>
+      <ul class="grid grid-cols-1 md:grid-cols-3 gap-8 package-list"></ul>
+      <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="300">
+        <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">View All Packages</a>
+      </div>
+    </div>
+  </section>
 
-      <!-- Testimonials Section -->
-      <section class="testimonials" id="testimonials">
-        <div class="container">
-          <p class="section-subtitle" data-aos="fade-up">Traveler Stories</p>
-          <h2 class="h2 section-title" data-aos="fade-up">What Our Travelers Say</h2>
-          <div class="testimonials-slider" data-aos="fade-up">
-            <div class="testimonial-card">
-              <p class="testimonial-text">"Dreamwingz Holiday made our trip to Italy unforgettable! The itinerary was perfect, and the support was amazing."</p>
-              <p class="testimonial-author">– Sarah M., USA</p>
-            </div>
-            <div class="testimonial-card">
-              <p class="testimonial-text">"The Maldives package was a dream come true. Everything was seamless, from booking to the trip itself."</p>
-              <p class="testimonial-author">– Raj K., India</p>
-            </div>
-            <div class="testimonial-card">
-              <p class="testimonial-text">"I loved the adventure in the Himalayas. Dreamwingz Holiday truly knows how to create memorable experiences!"</p>
-              <p class="testimonial-author">– Emily T., UK</p>
-            </div>
-          </div>
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-poppins font-bold text-center text-gray-800 dark:text-gray-100 mb-4" data-aos="fade-up">What Our Travelers Say</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
+          <p class="text-gray-600 dark:text-gray-300 italic">"An incredible trip to Italy! Dreamwingz made every moment special."</p>
+          <p class="mt-4 font-semibold text-blue-600 dark:text-blue-400">– Sarah M., USA</p>
         </div>
-      </section>
-
-      <!-- Gallery -->
-      <section class="gallery" id="gallery">
-        <div class="container">
-          <p class="section-subtitle" data-aos="fade-up">Photo Gallery</p>
-          <h2 class="h2 section-title" data-aos="fade-up">Photos From Travellers</h2>
-          <p class="section-text" data-aos="fade-up">
-            See the world through the eyes of our travellers with Dreamwingz Holiday.
-          </p>
-          <ul class="gallery-list" data-aos="fade-up"></ul>
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+          <p class="text-gray-600 dark:text-gray-300 italic">"The Maldives getaway was flawless. Highly recommend Dreamwingz!"</p>
+          <p class="mt-4 font-semibold text-blue-600 dark:text-blue-400">– Raj K., India</p>
         </div>
-      </section>
-
-      <!-- CTA -->
-      <section class="cta" id="contact">
-        <div class="container" data-aos="fade-up">
-          <div class="cta-content">
-            <p class="section-subtitle">Call To Action</p>
-            <h2 class="h2 section-title">Ready For Unforgettable Travel?</h2>
-            <p class="section-text">
-              Contact Dreamwingz Holiday to plan your next adventure today!
-            </p>
-          </div>
-          <button class="btn btn-secondary">Contact Us!</button>
-        </div>
-      </section>
-    </article>
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="footer-brand" data-aos="fade-up">
-          <a href="#" class="logo">
-            <img src="./images/logo.png" alt="Dreamwingz Holiday logo">
-          </a>
-          <p class="footer-text">
-            Dreamwingz Holiday, your trusted travel partner for unforgettable journeys.
-          </p>
-        </div>
-        <div class="footer-contact" data-aos="fade-up">
-          <h4 class="contact-title">Contact Us</h4>
-          <p class="contact-text">Feel free to contact and reach us!</p>
-          <ul>
-            <li class="contact-item">
-              <ion-icon name="call-outline"></ion-icon>
-              <a href="tel:+01123456790" class="contact-link">+01 (123) 4567 90</a>
-            </li>
-            <li class="contact-item">
-              <ion-icon name="mail-outline"></ion-icon>
-              <a href="mailto:info@dreamwingz.com" class="contact-link">info@dreamwingz.com</a>
-            </li>
-            <li class="contact-item">
-              <ion-icon name="location-outline"></ion-icon>
-              <address>3146 Koontz, California</address>
-            </li>
-          </ul>
-        </div>
-        <div class="footer-form" data-aos="fade-up">
-          <p class="form-text">Subscribe to our newsletter for updates & news!</p>
-          <form action="" class="footer-form">
-            <input type="email" name="email" placeholder="Your Email" class="input-field" required>
-            <button type="submit" class="btn btn-primary">Subscribe</button>
-          </form>
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
+          <p class="text-gray-600 dark:text-gray-300 italic">"Himalayan adventure was breathtaking. Amazing service!"</p>
+          <p class="mt-4 font-semibold text-blue-600 dark:text-blue-400">– Emily T., UK</p>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <p class="copyright">
-          © 2025 Dreamwingz Holiday. All rights reserved.
-        </p>
-        <ul class="footer-bottom-list">
-          <li><a href="#" class="footer-bottom-link">Privacy Policy</a></li>
-          <li><a href="#" class="footer-bottom-link">Terms & Conditions</a></li>
-          <li><a href="#" class="footer-bottom-link">FAQ</a></li>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="py-16 bg-gray-100 dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-poppins font-bold text-center text-gray-800 dark:text-gray-100 mb-4" data-aos="fade-up">Traveler Moments</h2>
+      <p class="text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">See the world through the eyes of our travelers.</p>
+      <div class="swiper gallery-slider" data-aos="fade-up" data-aos-delay="200">
+        <div class="swiper-wrapper gallery-list"></div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section id="contact" class="py-16 bg-gradient-to-r from-blue-600 to-teal-500 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-poppins font-bold mb-4" data-aos="fade-up">Plan Your Adventure Today</h2>
+      <p class="text-lg max-w-2xl mx-auto mb-8" data-aos="fade-up" data-aos-delay="100">Contact Dreamwingz Holiday for a personalized travel experience.</p>
+      <a href="#contact" class="bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-gray-100 transition" data-aos="fade-up" data-aos-delay="200">Get Started</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-16">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div data-aos="fade-up">
+        <a href="#" class="logo">
+          <img src="images/img8.jpg" alt="Dreamwingz Holiday logo" class="w-40 mb-4">
+        </a>
+        <p class="text-gray-300">Your trusted partner for unforgettable travel experiences worldwide.</p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100">
+        <h3 class="text-xl font-poppins font-semibold mb-4">Contact Us</h3>
+        <ul class="space-y-2">
+          <li class="flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+            <a href="tel:+01123456790">+01 (123) 4567 90</a>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+            <a href="mailto:info@dreamwingz.com">info@dreamwingz.com</a>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+            <address class="not-italic">3146 Koontz, California</address>
+          </li>
         </ul>
       </div>
+      <div data-aos="fade-up" data-aos-delay="200">
+        <h3 class="text-xl font-poppins font-semibold mb-4">Subscribe</h3>
+        <p class="text-gray-300 mb-4">Join our newsletter for exclusive travel deals.</p>
+        <button id="newsletter-toggle" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Subscribe Now</button>
+      </div>
+    </div>
+    <div class="container mx-auto px-4 mt-8 border-t border-gray-700 pt-4 text-center">
+      <p class="text-gray-400">&copy; 2025 Dreamwingz Holiday. All rights reserved.</p>
+      <ul class="flex justify-center space-x-4 mt-4">
+        <li><a href="#" class="text-gray-300 hover:text-blue-400">Privacy Policy</a></li>
+        <li><a href="#" class="text-gray-300 hover:text-blue-400">Terms & Conditions</a></li>
+        <li><a href="#" class="text-gray-300 hover:text-blue-400">FAQ</a></li>
+      </ul>
     </div>
   </footer>
 
+  <!-- Sticky Inquiry Form -->
+  <div class="fixed bottom-4 right-4 z-50">
+    <button id="inquiry-toggle" class="bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-700 transition">Plan Your Trip</button>
+    <div id="inquiry-form" class="hidden bg-white dark:bg-gray-700 p-6 rounded-lg shadow-xl mt-2 w-80">
+      <h3 class="text-xl font-poppins font-semibold mb-4 text-gray-800 dark:text-gray-100">Plan Your Adventure</h3>
+      <form>
+        <input type="text" placeholder="Name" class="w-full p-3 mb-4 rounded-lg bg-gray-100 dark:bg-gray-600 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+        <input type="email" placeholder="Email" class="w-full p-3 mb-4 rounded-lg bg-gray-100 dark:bg-gray-600 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+        <input type="tel" placeholder="Phone" class="w-full p-3 mb-4 rounded-lg bg-gray-100 dark:bg-gray-600 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+        <textarea placeholder="Your Message" class="w-full p-3 mb-4 rounded-lg bg-gray-100 dark:bg-gray-600 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-400" rows="4" required></textarea>
+        <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Newsletter Modal -->
+  <div id="newsletter-modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-xl w-96">
+      <h3 class="text-xl font-poppins font-semibold mb-4 text-gray-800 dark:text-gray-100">Subscribe to Our Newsletter</h3>
+      <form id="newsletter-form">
+        <input type="email" placeholder="Your Email" class="w-full p-3 mb-4 rounded-lg bg-gray-100 dark:bg-gray-600 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+        <div class="flex space-x-4">
+          <button type="submit" class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Subscribe</button>
+          <button type="button" id="newsletter-close" class="flex-1 bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-gray-200 px-4 py-2 rounded-lg hover:bg-gray-400 dark:hover:bg-gray-500 transition">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/1234567890" class="fixed bottom-20 right-4 bg-green-500 text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:bg-green-600 transition" data-aos="fade-left">
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.198-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.134.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.074-.149-.669-.648-.916-.983-.247-.335-.446-.669-.644-.983-.198-.314-.247-.642-.099-.792.148-.149.396-.347.692-.495.297-.149.594-.223.892-.223.297 0 .594.074.892.223.297.148.668.495.94.743.272.248.594.668.792.916.198.248.297.495.297.792 0 .297-.099.594-.297.892-.198.297-.495.594-.792.892zm-5.278 7.604A11.99 11.99 0 0 1 5.9 19.771l-.447-.894-3.322.894.894-3.322-.447-.894A11.99 11.99 0 0 1 0 12c0-6.627 5.373-12 12-12s12 5.373 12 12-5.373 12-12 12z" /></svg>
+  </a>
+
   <!-- Go to Top -->
-  <a href="#top" class="go-top" data-go-top aria-label="Go to Top">
-    <ion-icon name="chevron-up-outline"></ion-icon>
+  <a href="#top" class="fixed bottom-4 right-20 bg-blue-600 text-white w-10 h-10 flex items-center justify-center rounded-full shadow-lg opacity-0 invisible transition-all duration-300 go-top" data-aos="fade-left">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
   </a>
 
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/1123456790" class="whatsapp-btn" aria-label="Chat with us on WhatsApp" target="_blank">
-    <ion-icon name="logo-whatsapp"></ion-icon>
-  </a>
-
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
-  <script src="./js/scripts.js"></script>
+  <script src="scripts.js"></script>
 </body>
 </html>

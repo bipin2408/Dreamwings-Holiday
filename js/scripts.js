@@ -1,229 +1,207 @@
 'use strict';
 
-/**
- * Initialize AOS for scroll animations
- */
+// Initialize AOS
 AOS.init({
   duration: 800,
   once: true,
 });
 
-/**
- * Navbar toggle
- */
-const overlay = document.querySelector("[data-overlay]");
-const navOpenBtn = document.querySelector("[data-nav-open-btn]");
-const navbar = document.querySelector("[data-navbar]");
-const navCloseBtn = document.querySelector("[data-nav-close-btn]");
-const navLinks = document.querySelectorAll("[data-nav-link]");
-
-const navElemArr = [navOpenBtn, navCloseBtn, overlay];
-
-const navToggleEvent = function (elem) {
-  for (let i = 0; i < elem.length; i++) {
-    elem[i].addEventListener("click", function () {
-      navbar.classList.toggle("active");
-      overlay.classList.toggle("active");
-    });
-  }
-}
-
-navToggleEvent(navElemArr);
-navToggleEvent(navLinks);
-
-/**
- * Header sticky & go to top
- */
-const header = document.querySelector("[data-header]");
-const goTopBtn = document.querySelector("[data-go-top]");
-
-window.addEventListener("scroll", function () {
-  if (window.scrollY >= 200) {
-    header.classList.add("active");
-    goTopBtn.classList.add("active");
-  } else {
-    header.classList.remove("active");
-    goTopBtn.classList.remove("active");
-  }
-});
-
-/**
- * Dynamically load popular destinations from data/popular.json
- */
-document.addEventListener("DOMContentLoaded", function () {
-  const popularList = document.querySelector(".popular-list");
-
-  fetch("../data/popular.json")
-    .then(response => response.json())
-    .then(data => {
-      popularList.innerHTML = ""; // Clear existing content
-
-      data.forEach((dest, index) => {
-        const popularItem = document.createElement("li");
-        popularItem.classList.add("popular-item");
-        popularItem.style.animationDelay = `${index * 0.2}s`;
-
-        popularItem.innerHTML = `
-          <div class="popular-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="500">
-            <figure class="card-img">
-              <img src="${dest.image}" alt="${dest.title}" loading="lazy">
-            </figure>
-            <div class="card-content">
-              <div class="card-rating">
-                ${'<ion-icon name="star"></ion-icon>'.repeat(dest.rating)}
-                ${'<ion-icon name="star-outline"></ion-icon>'.repeat(5 - dest.rating)}
-              </div>
-              <p class="card-subtitle">
-                <a href="#">${dest.subtitle}</a>
-              </p>
-              <h3 class="h3 card-title">
-                <a href="#">${dest.title}</a>
-              </h3>
-              <p class="card-text">
-                ${dest.text}
-              </p>
-            </div>
-          </div>
-        `;
-        popularList.appendChild(popularItem);
-      });
-
-      // Initialize Tilt.js for popular cards
-      VanillaTilt.init(document.querySelectorAll(".popular-card"), {
-        max: 15,
-        speed: 400,
-        perspective: 500,
-      });
-    })
-    .catch(error => console.error("Error loading popular destinations:", error));
-});
-
-/**
- * Interactive Map Functionality
- */
-document.addEventListener("DOMContentLoaded", function () {
-  const mapPoints = document.querySelectorAll(".map-point");
-
-  mapPoints.forEach(point => {
-    point.addEventListener("mouseenter", function () {
-      const tooltip = document.createElement("div");
-      tooltip.className = "map-tooltip";
-      tooltip.textContent = this.getAttribute("title");
-      document.body.appendChild(tooltip);
-
-      const rect = this.getBoundingClientRect();
-      tooltip.style.position = "fixed";
-      tooltip.style.left = `${rect.left + window.scrollX + 15}px`;
-      tooltip.style.top = `${rect.top + window.scrollY - 30}px`;
-      tooltip.style.background = "rgba(0, 0, 0, 0.8)";
-      tooltip.style.color = "white";
-      tooltip.style.padding = "5px 10px";
-      tooltip.style.borderRadius = "5px";
-      tooltip.style.fontSize = "12px";
-      tooltip.style.zIndex = "10";
-    });
-
-    point.addEventListener("mouseleave", function () {
-      const tooltip = document.querySelector(".map-tooltip");
-      if (tooltip) tooltip.remove();
-    });
+// GSAP Scroll Animations
+gsap.registerPlugin(ScrollTrigger);
+document.querySelectorAll('.popular-card, .package-card').forEach(card => {
+  gsap.from(card, {
+    opacity: 0,
+    y: 50,
+    duration: 0.8,
+    scrollTrigger: {
+      trigger: card,
+      start: 'top 80%',
+    },
   });
 });
 
-/**
- * Dynamically load packages from data/packages.json
- */
-document.addEventListener("DOMContentLoaded", function () {
-  const packageList = document.querySelector(".package-list");
-
-  fetch("../data/packages.json")
-    .then(response => response.json())
-    .then(data => {
-      packageList.innerHTML = ""; // Clear existing content
-
-      data.forEach((pkg, index) => {
-        const packageItem = document.createElement("li");
-        packageItem.classList.add("package-item");
-        packageItem.style.animationDelay = `${index * 0.2}s`;
-
-        packageItem.innerHTML = `
-          <div class="package-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="500">
-            <figure class="card-banner">
-              <img src="${pkg.image}" alt="${pkg.title}" loading="lazy">
-            </figure>
-            <div class="card-content">
-              <h3 class="h3 card-title">${pkg.title}</h3>
-              <p class="card-text">${pkg.description}</p>
-              <ul class="card-meta-list">
-                <li class="card-meta-item">
-                  <div class="meta-box">
-                    <ion-icon name="time"></ion-icon>
-                    <p class="text">${pkg.duration}</p>
-                  </div>
-                </li>
-                <li class="card-meta-item">
-                  <div class="meta-box">
-                    <ion-icon name="people"></ion-icon>
-                    <p class="text">pax: ${pkg.pax}</p>
-                  </div>
-                </li>
-                <li class="card-meta-item">
-                  <div class="meta-box">
-                    <ion-icon name="location"></ion-icon>
-                    <p class="text">${pkg.location}</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="card-price">
-              <div class="wrapper">
-                <p class="reviews">(${pkg.reviews} reviews)</p>
-                <div class="card-rating">
-                  ${'<ion-icon name="star"></ion-icon>'.repeat(pkg.rating)}
-                  ${'<ion-icon name="star-outline"></ion-icon>'.repeat(5 - pkg.rating)}
-                </div>
-              </div>
-              <p class="price">${pkg.price}<span>/ per person</span></p>
-              <button class="btn btn-secondary">Book Now</button>
-            </div>
-          </div>
-        `;
-        packageList.appendChild(packageItem);
-      });
-
-      // Initialize Tilt.js for package cards
-      VanillaTilt.init(document.querySelectorAll(".package-card"), {
-        max: 15,
-        speed: 400,
-        perspective: 500,
-      });
-    })
-    .catch(error => console.error("Error loading packages:", error));
+// Mobile Nav Toggle
+const navToggle = document.querySelector('#nav-toggle');
+const mobileNav = document.querySelector('.mobile-nav');
+navToggle?.addEventListener('click', () => {
+  mobileNav.classList.toggle('active');
 });
 
-/**
- * Dynamically load gallery images from data/gallery.json
- */
-document.addEventListener("DOMContentLoaded", function () {
-  const galleryList = document.querySelector(".gallery-list");
+// Theme Toggle
+const themeToggle = document.querySelector('#theme-toggle');
+themeToggle?.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+});
 
-  fetch("../data/gallery.json")
+// Load Theme
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark');
+}
+
+// Go to Top
+const goTop = document.querySelector('.go-top');
+window.addEventListener('scroll', () => {
+  goTop.classList.toggle('active', window.scrollY >= 200);
+});
+
+// Inquiry Form Toggle
+const inquiryToggle = document.querySelector('#inquiry-toggle');
+const inquiryForm = document.querySelector('#inquiry-form');
+inquiryToggle?.addEventListener('click', () => {
+  inquiryForm.classList.toggle('hidden');
+});
+
+// Newsletter Modal
+const newsletterToggle = document.querySelector('#newsletter-toggle');
+const newsletterModal = document.querySelector('#newsletter-modal');
+const newsletterClose = document.querySelector('#newsletter-close');
+newsletterToggle?.addEventListener('click', () => {
+  newsletterModal.classList.remove('hidden');
+});
+newsletterClose?.addEventListener('click', () => {
+  newsletterModal.classList.add('hidden');
+});
+
+// Newsletter Form Validation
+const newsletterForm = document.querySelector('#newsletter-form');
+newsletterForm?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = newsletterForm.querySelector('input[type="email"]').value;
+  if (/^\S+@\S+\.\S+$/.test(email)) {
+    alert('Thank you for subscribing!');
+    newsletterForm.reset();
+    newsletterModal.classList.add('hidden');
+  } else {
+    alert('Please enter a valid email address.');
+  }
+});
+
+// Load Popular Destinations
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('data/popular.json')
     .then(response => response.json())
     .then(data => {
-      galleryList.innerHTML = ""; // Clear existing content
+      const popularList = document.querySelector('.popular-list');
+      popularList.innerHTML = '';
+      data.forEach((dest, index) => {
+        const item = document.createElement('li');
+        item.classList.add('popular-card', 'bg-white', 'dark:bg-gray-700', 'rounded-lg', 'shadow-lg', 'overflow-hidden');
+        item.setAttribute('data-aos', 'fade-up');
+        item.setAttribute('data-aos-delay', index * 100);
+        item.innerHTML = `
+          <div class="card-img">
+            <img src="${dest.image}" alt="${dest.title}" class="w-full h-48 object-cover" loading="lazy" onerror="this.src='images/img8.jpg'">
+          </div>
+          <div class="p-6">
+            <div class="card-rating mb-2">
+              ${'<svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>'.repeat(dest.rating)}
+              ${'<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.519-4.674z"/></svg>'.repeat(5 - dest.rating)}
+            </div>
+            <p class="text-blue-600 dark:text-blue-400 text-sm uppercase mb-2">${dest.subtitle}</p>
+            <h3 class="text-xl font-poppins font-semibold text-gray-800 dark:text-gray-100 mb-2">${dest.title}</h3>
+            <p class="text-gray-600 dark:text-gray-300">${dest.text}</p>
+          </div>
+        `;
+        popularList.appendChild(item);
+      });
+    })
+    .catch(error => console.error('Error loading popular destinations:', error));
+});
 
+// Load Packages
+let allPackages = [];
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('data/packages.json')
+    .then(response => response.json())
+    .then(data => {
+      allPackages = data;
+      renderPackages(data);
+    })
+    .catch(error => console.error('Error loading packages:', error));
+});
+
+// Package Filter
+const packageFilter = document.querySelector('#package-filter');
+packageFilter?.addEventListener('change', (e) => {
+  const value = e.target.value;
+  const filteredPackages = value === 'all' ? allPackages : allPackages.filter(pkg => pkg.location === value);
+  renderPackages(filteredPackages);
+});
+
+function renderPackages(packages) {
+  const packageList = document.querySelector('.package-list');
+  packageList.innerHTML = '';
+  packages.forEach((pkg, index) => {
+    const item = document.createElement('li');
+    item.classList.add('package-card', 'bg-white', 'dark:bg-gray-700', 'rounded-lg', 'shadow-lg', 'overflow-hidden');
+    item.setAttribute('data-aos', 'fade-up');
+    item.setAttribute('data-aos-delay', index * 100);
+    item.innerHTML = `
+      <img src="${pkg.image}" alt="${pkg.title}" class="w-full h-48 object-cover" loading="lazy" onerror="this.src='images/img8.jpg'">
+      <div class="p-6">
+        <h3 class="text-xl font-poppins font-semibold text-gray-800 dark:text-gray-100 mb-2">${pkg.title}</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">${pkg.description}</p>
+        <ul class="flex flex-wrap gap-2 mb-4 bg-gray-100 dark:bg-gray-600 p-2 rounded-lg">
+          <li class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            ${pkg.duration}
+          </li>
+          <li class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+            Pax: ${pkg.pax}
+          </li>
+          <li class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+            ${pkg.location}
+          </li>
+        </ul>
+        <div class="flex items-center justify-between mb-4">
+          <p class="text-sm text-gray-600 dark:text-gray-300">(${pkg.reviews} reviews)</p>
+          <div class="card-rating">
+            ${'<svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>'.repeat(pkg.rating)}
+            ${'<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.519-4.674z"/></svg>'.repeat(5 - pkg.rating)}
+          </div>
+        </div>
+        <p class="text-xl font-poppins font-semibold text-gray-800 dark:text-gray-100">${pkg.price} <span class="text-sm">/ per person</span></p>
+        <button class="mt-4 w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Book Now</button>
+      </div>
+    `;
+    packageList.appendChild(item);
+  });
+}
+
+// Load Gallery
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('data/gallery.json')
+    .then(response => response.json())
+    .then(data => {
+      const galleryList = document.querySelector('.gallery-list');
+      galleryList.innerHTML = '';
       data.forEach((item, index) => {
-        const galleryItem = document.createElement("li");
-        galleryItem.classList.add("gallery-item");
-        galleryItem.style.animationDelay = `${index * 0.2}s`;
-
+        const galleryItem = document.createElement('div');
+        galleryItem.classList.add('swiper-slide');
         galleryItem.innerHTML = `
-          <figure class="gallery-image">
-            <img src="${item.image}" alt="${item.alt}">
-          </figure>
+          <img src="${item.image}" alt="${item.alt}" class="w-full h-64 object-cover rounded-lg" loading="lazy" onerror="this.src='images/img8.jpg'">
         `;
         galleryList.appendChild(galleryItem);
       });
+      new Swiper('.gallery-slider', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        },
+      });
     })
-    .catch(error => console.error("Error loading gallery images:", error));
+    .catch(error => console.error('Error loading gallery:', error));
 });
