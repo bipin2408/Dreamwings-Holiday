@@ -1,26 +1,23 @@
 [
-  {
-    "image": "./images/popular-1.jpg",
-    "alt": "San miguel, Italy",
-    "rating": 5,
-    "subtitle": "Italy",
-    "title": "San Miguel",
-    "text": "Fusce hic augue velit wisi ips quibusdam pariatur, iusto."
-  },
-  {
-    "image": "./images/popular-2.jpg",
-    "alt": "Burj khalifa, Dubai",
-    "rating": 4,
-    "subtitle": "Dubai",
-    "title": "Burj Khalifa",
-    "text": "Fusce hic augue velit wisi ips quibusdam pariatur, iusto."
-  },
-  {
-    "image": "./images/popular-3.jpg",
-    "alt": "Kyoto temple, Japan",
-    "rating": 5,
-    "subtitle": "Japan",
-    "title": "Kyoto Temple",
-    "text": "Fusce hic augue velit wisi ips quibusdam pariatur, iusto."
-  }
-]
+    {
+      "title": "San Miguel",
+      "subtitle": "Italy",
+      "rating": 5,
+      "text": "Fusce hic augue velit wisi ips quibusdam pariatur, iusto.",
+      "image": "../images/popular-1.jpg"
+    },
+    {
+      "title": "Burj Khalifa",
+      "subtitle": "Dubai",
+      "rating": 5,
+      "text": "Fusce hic augue velit wisi ips quibusdam pariatur, iusto.",
+      "image": "../images/popular-2.jpg"
+    },
+    {
+      "title": "Kyoto Temple",
+      "subtitle": "Japan",
+      "rating": 5,
+      "text": "Fusce hic augue velit wisi ips quibusdam pariatur, iusto.",
+      "image": "../images/popular-3.jpg"
+    }
+  ]
