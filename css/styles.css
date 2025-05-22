@@ -199,17 +199,17 @@
   \*-----------------------------------*/
   
   .header {
-    position: fixed; /* Changed to fixed to ensure it stays on top */
+    position: fixed; /* Keep fixed to ensure it stays on top */
     top: 0;
     left: 0;
     width: 100%;
-    background: transparent; /* Ensure initial transparency */
-    padding-top: 0; /* Remove padding-top to control spacing better */
+    background: var(--gunmetal); /* Solid background for better contrast */
+    box-shadow: 0 2px 5px hsla(0, 0%, 0%, 0.2); /* Subtle shadow for separation */
     z-index: 4;
   }
   
   .header-top {
-    position: relative; /* Changed to relative to avoid overlap issues */
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -217,7 +217,7 @@
     border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
     padding-block: 15px;
     z-index: 1;
-    background: transparent; /* Ensure transparency */
+    background: var(--gunmetal); /* Match header background */
   }
   
   .header.active .header-top {
@@ -279,7 +279,7 @@
   
   .header-bottom { 
     border-bottom: 1px solid hsla(0, 0%, 100%, 0.1); 
-    background: transparent; /* Ensure transparency */
+    background: var(--gunmetal); /* Match header background */
   }
   
   .header-bottom .container {
@@ -400,8 +400,8 @@
     place-items: center;
     min-height: 600px;
     text-align: center;
-    margin-top: 120px; /* Added to push hero below header */
-    padding-top: 40px; /* Reduced padding-top to adjust content positioning */
+    margin-top: 100px; /* Adjusted to match header height */
+    padding-top: 60px; /* Adjusted for balanced spacing */
     position: relative;
     overflow: hidden;
   }
@@ -934,8 +934,6 @@
   
     .card-text { --fs-5: 15px; }
   
-    .header { padding-top: 0; } /* Adjusted */
-  
     .helpline-box .icon-box { padding: 14px; }
   
     .header-top .logo img {
@@ -954,8 +952,8 @@
   
     .hero {
       min-height: 800px;
-      margin-top: 140px; /* Adjusted for larger header */
-      padding-top: 40px;
+      margin-top: 120px; /* Adjusted for larger header */
+      padding-top: 60px;
     }
   
     .hero-text { --fs-5: 15px; }
@@ -1094,7 +1092,7 @@
     .container { max-width: 1050px; }
   
     .header.active .header-top {
-      position: fixed; /* Keep fixed behavior */
+      position: fixed;
       background: var(--gunmetal);
     }
   
