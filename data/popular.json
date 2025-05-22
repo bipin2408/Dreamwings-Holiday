@@ -19,38 +19,7 @@
       "rating": 5,
       "text": "Fusce hic augue velit wisi ips quibusdam pariatur, iusto.",
       "image": "../images/popular-3.jpg"
-    },
-  
-    {
-      "title": "Cliffside Ocean Adventure",
-      "description": "Fusce hic augue velit wisi ips quibusdam pariatur, iusto.",
-      "duration": "7D/6N",
-      "pax": "6",
-      "location": "California",
-      "rating": 5,
-      "reviews": 62,
-      "price": "$850",
-      "image": "../images/package-1.jpg"    },
-    {
-      "title": "Mountain Escape Retreat",
-      "description": "Fusce hic augue velit wisi ips quibusdam pariatur, iusto.",
-      "duration": "5D/4N",
-      "pax": "4",
-      "location": "Himalayas",
-      "rating": 4,
-      "reviews": 48,
-      "price": "$650",
-      "image": "../images/package-2.jpg"
-    },
-    {
-      "title": "Island Paradise Getaway",
-      "description": "Fusce hic augue velit wisi ips quibusdam pariatur, iusto.",
-      "duration": "8D/7N",
-      "pax": "8",
-      "location": "Maldives",
-      "rating": 5,
-      "reviews": 75,
-      "price": "$1200",
-      "image": "../images/package-3.jpg"
     }
   ]
+
+  
