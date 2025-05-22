@@ -8,8 +8,7 @@
       "rating": 5,
       "reviews": 62,
       "price": "$850",
-      "image": "../images/package-1.jpg"
-    },
+      "image": "./images/package-1.jpg"    },
     {
       "title": "Mountain Escape Retreat",
       "description": "Fusce hic augue velit wisi ips quibusdam pariatur, iusto.",
@@ -19,7 +18,7 @@
       "rating": 4,
       "reviews": 48,
       "price": "$650",
-      "image": "../images/package-2.jpg"
+      "image": "./images/package-2.jpg"
     },
     {
       "title": "Island Paradise Getaway",
@@ -30,6 +29,6 @@
       "rating": 5,
       "reviews": 75,
       "price": "$1200",
-      "image": "../images/package-3.jpg"
+      "image": "./images/package-3.jpg"
     }
   ]
